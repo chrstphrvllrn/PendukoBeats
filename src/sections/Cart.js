@@ -6,11 +6,11 @@ function Cart() {
     <div>
         <Nav/>
 
-        <div className='w-full h-[80vh] px-16'>
-            
-            <div className='w-full h-full flex items-center justify-center'>
+        <div className='w-full h-[90vh] px-16'>
+
+            <div className='w-full h-full flex items-center justify-center bg-zinc-50'>
     
-            Cart
+           
 
 
           

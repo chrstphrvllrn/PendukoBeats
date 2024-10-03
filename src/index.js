@@ -8,11 +8,14 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import Cart from './sections/Cart.js'
 import Pricing from './sections/Pricing.js'
+import Login from './sections/Login.js'
+
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/cart", element: <Cart /> },
   { path: "/pricing", element: <Pricing /> },
+  { path: "/login", element: <Login /> },
 ])
 
 

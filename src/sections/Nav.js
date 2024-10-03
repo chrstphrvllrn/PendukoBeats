@@ -33,10 +33,16 @@ function Nav() {
             </ul>
 
 
-            <div className='cursor-pointer px-8 flex'>
-            <AddToCart isWhite={true}/> 
-            <p className='bg-green-500 px-2 py-0 rounded-3xl text-xs items-center flex items-center font-bold'>2</p>
-
+            <div className='cursor-pointer px-8 flex gap-5'>
+              <button>
+                  <Link to="/login"  className=' font-medium text-xs text-zinc-200 bg-none hover:text-green-500 '>  
+                      LOGIN
+                  </Link>
+              </button>
+            <div className='flex gap-1'>         
+                <AddToCart isWhite={true}/> 
+                <p className='bg-green-500 px-2 py-0 rounded-3xl text-xs items-center flex items-center font-bold'>2</p>
+            </div> 
 
 
             </div>
