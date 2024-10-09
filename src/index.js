@@ -7,13 +7,24 @@ import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import Cart from './sections/Cart.js'
+import Contact from './sections/Contact.js'
 import Pricing from './sections/Pricing.js'
 import Login from './sections/Login.js'
+
+// import './fonts/Geist/webfonts/Geist-ExtraBold.woff2';
+// import './fonts/Geist/webfonts/Geist-Bold.woff2';
+// import './fonts/Geist/webfonts/Geist-Medium.woff2';
+// import './fonts/Geist/webfonts/Geist-Regular.woff2';
+// import './fonts/Geist/ttf/Geist-ExtraBold.ttf';
+// import './fonts/Geist/ttf/Geist-Bold.ttf';
+// import './fonts/Geist/ttf/Geist-Medium.ttf';
+// import './fonts/Geist/ttf/Geist-Regular.ttf';
 
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/cart", element: <Cart /> },
+  { path: "/contact", element: <Contact /> },
   { path: "/pricing", element: <Pricing /> },
   { path: "/login", element: <Login /> },
 ])

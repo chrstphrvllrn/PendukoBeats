@@ -5,15 +5,51 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
-  font-family: "Inter", sans-serif;
+  /* font-family: "Inter", sans-serif; */
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-} 
+}  */
 
+
+@font-face {
+font-family: 'Geist';
+font-weight: 800;
+src: url('../src/fonts/Geist/webfonts/Geist-ExtraBold.woff2') format('woff2'),
+url('../src/fonts/Geist/ttf/Geist-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+font-family: 'Geist';
+font-weight: bold;
+src: url('../src/fonts/Geist/webfonts/Geist-Bold.woff2') format('woff2'),
+url('../src/fonts/Geist/ttf/Geist-Bold.ttf') format('truetype');
+
+}
+
+@font-face {
+font-family: 'Geist';
+font-weight: medium;
+src: url('../src/fonts/Geist/webfonts/Geist-Medium.woff2') format('woff2'),
+url('../src/fonts/Geist/ttf/Geist-Medium.ttf') format('truetype');
+
+}
+
+@font-face {
+  font-family: 'Geist';
+  font-weight: normal;
+  src: url('../src/fonts/Geist/webfonts/Geist-Regular.woff2') format('woff2'),
+  url('../src/fonts/Geist/ttf/Geist-Regular.ttf') format('truetype');
+}  
+
+body {
+  font-family: 'Geist', sans-serif;
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
