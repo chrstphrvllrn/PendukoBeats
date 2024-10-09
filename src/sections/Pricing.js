@@ -1,6 +1,6 @@
 import React from 'react'
-import Nav from './Nav';
-import Footer from './Footer';
+// import Nav from './Nav';
+// import Footer from './Footer';
 import Check from '../components/Check'
 import { PricingData } from '../constants/index.js';
 
@@ -37,8 +37,8 @@ function Pricing() {
                     </div>
                       <p className='text-zinc-400 text-xs'>{item.description}</p>
                       <div className='flex items-center gap-2 '>
-                        <p className='text-[#ca8a04] text-xl'>{item.currency}</p>
-                        <p className='text-4xl font-bold text-[#ca8a04]'>{item.price}</p>
+                        <p className='text-goldenyellow-primary text-xl'>{item.currency}</p>
+                        <p className='text-4xl font-bold text-goldenyellow-primary'>{item.price}</p>
                       </div>
                       { item.list.map(( item, index) => (
                         <div className='flex items-center gap-2'>

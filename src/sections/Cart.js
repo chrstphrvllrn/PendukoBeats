@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Nav from './Nav';
+// import Nav from './Nav';
 
 function Cart({cart, setCart}) {
-  const [price, setPrice] = useState(0);
+  // const [price, setPrice] = useState(0);
   console.log(cart)
   return (
     <div>

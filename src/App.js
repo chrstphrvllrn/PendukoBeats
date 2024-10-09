@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import Nav from './sections/Nav';
 import Hero from './sections/Hero';
 import './App.css';
@@ -28,13 +28,13 @@ function App() {
 
           if (isPresent) {
             setWarning(true); 
-            toast('Item is already Added to cart', { className: 'my-classname', description: 'My description', duration: 1000, icon: <WarningNotification />, });
+            toast('Item is already added to cart', { className: '',  duration: 1000, icon: <WarningNotification />, });
             setTimeout(() => {
               setWarning(false)
             }, 500)
             return;
           } else {
-            toast('Successfully saved!', { className: 'my-classname', description: 'My description', duration: 1000, icon: <CheckNotifcation />, });
+            toast('Successfully Added!', { className: '', duration: 1000, icon: <CheckNotifcation />, });
             setCart([...cart, item])
           }
           

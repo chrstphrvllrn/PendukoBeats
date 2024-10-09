@@ -207,7 +207,7 @@ function Player({handleClick}) {
                 max={songDurations[currentAudio.id] || 0}
                 value={currentTime}
                 onChange={handleProgressChange}
-                className="relative w-full h-2 bg-gray-300 rounded-full  cursor-pointer absolute top-0 left-0 h-1 accent-[#FFD700] rounded-full"
+                className="relative w-full h-2 bg-gray-300 rounded-full  cursor-pointer absolute top-0 left-0 h-1 accent-brand-primary rounded-full"
               />
             </div>
             <div className="w-3/12 sm:w-0/12 md:w-1/12 lg:w-2/12 flex items-center hidden md:flex ">
@@ -224,7 +224,7 @@ function Player({handleClick}) {
                 step="0.01"
                 value={volume}
                 onChange={handleVolumeChange}
-                className="w-full accent-[#FFD700] h-1"
+                className="w-full accent-brand-primary h-1"
               />
             </div>
 
@@ -239,7 +239,7 @@ function Player({handleClick}) {
         {/* Song List - Filtered based on search */}
         {filteredSongs.length > 0 ? (
           filteredSongs.map((item) => (
-            <div onClick={() => playSound(item.file, item)} className={`flex items-center justify-center w-full ${currentAudio?.id === item.id ? 'bg-[#fefce8]' : ''}`}>
+            <div onClick={() => playSound(item.file, item)} className={`flex items-center justify-center w-full ${currentAudio?.id === item.id ? 'bg-ivory-primary' : ''}`}>
               <Song
                 currentAudioId={currentAudio?.id}
                 key={item.id}

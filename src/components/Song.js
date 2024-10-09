@@ -2,8 +2,8 @@ import React from 'react'
 import Download from './Download'
 import AddToCart from './AddToCart'
 import Share from './Share'
-import Play_Cover from './PlayCover'
-import Pause_Cover from './PauseCover'
+import PlayCover from './PlayCover'
+import PauseCover from './PauseCover'
  
 
 function Song({ id, thumbnail, title, tags, duration, price, bpm, file, isPlaying, currentAudioId, handleClick, item}) {
@@ -15,10 +15,8 @@ function Song({ id, thumbnail, title, tags, duration, price, bpm, file, isPlayin
     }
 
 
-
-
     return (
-        <div className='flex flex-row gap-5 mx-1 w-full py-2 px-0 sm:px-0 md:px-0 lg:px-5 hover:bg-[#f4f4f5] cursor-pointer border-b rounded-md hover:scale-[1.01] transition-all' >
+        <div className='flex flex-row gap-5 mx-1 w-full py-2 px-0 sm:px-0 md:px-0 lg:px-5 hover:bg-lightgray-primary cursor-pointer border-b rounded-md hover:scale-[1.01] transition-all' >
 
             <div className='w-2/4 md:1/4 flex flex-row gap-0 sm:gap-0 md:gap-5 '>
 
@@ -28,14 +26,14 @@ function Song({ id, thumbnail, title, tags, duration, price, bpm, file, isPlayin
                 <div className='w-[2.5em] h-[2.5em] bg-zinc-400 flex items-center justify-center hidden sm:flex md:flex ' style={{ backgroundImage: `url(${thumbnail})`, backgroundSize: 'cover' }}>
                     <button className='text-white' >
                         {currentAudioId === id ? (
-                            <Play_Cover />
+                            <PlayCover />
                         ) : (
-                            <Pause_Cover />
+                            <PauseCover />
                         )}
                     </button>
                 </div>
                 <div className='flex flex-col justify-center gap-1 pl-4 md:pl-0'>
-                    <p className={`font-bold text-sm  ${currentAudioId === id ? ('text-[#a16207]') : ('text-black')}`}>{title}</p>
+                    <p className={`font-bold text-sm  ${currentAudioId === id ? ('text-bronze-primary') : ('text-black')}`}>{title}</p>
                     <p className='text-zinc-500 text-xs'>{tags}</p>
                 </div>
 

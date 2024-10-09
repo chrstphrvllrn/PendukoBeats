@@ -30,7 +30,7 @@ function Hero() {
 
                     <div className='flex gap-2'>
                     <buton onClick={() => { const element = document.getElementById('pricing'); element?.scrollIntoView({ behavior: 'smooth' }) }} >
-                          <Button text='Check Pricing' color='bg-[#FFD700] hover:bg-[#FFC000]' />
+                          <Button text='Check Pricing' color='bg-brand-primary hover:bg-brand-secondary' />
                     </buton>
                   
                     </div>

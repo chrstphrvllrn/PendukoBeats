@@ -1,5 +1,5 @@
 import React from 'react'
-import { SocialMediaData } from '../constants/index.js'
+import { SocialMediaData } from '../constants/index'
 
 function Footer() {
 
