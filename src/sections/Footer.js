@@ -8,23 +8,26 @@ function Footer() {
 
       
 
-      <div className='w-full md:w-1/2   pt-0 pb-72  flex items-start  justify-center md:justify-start gap-5'>
+      <div className='w-full md:w-1/2   pt-0 pb-72  flex flex-col items-start justify-center md:justify-start gap-5'>
+          
+          {/* <p className='p-2 rounded-3xl'> Find me on</p> */}
+          <div className='flex flex-row items-start'>
+              {SocialMediaData.map((item, index) => (
+                      <a
+                      key={index}
+                      href={item.url}
+                      label={item.label}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-zinc-900 hover:text-black  rounded-3xl transition-colors duration-300"
+                      >
+                      <div className="bg-white p-2 rounded-full hover:text-zinc-500 transition-colors duration-300">
+                      {item.icon} {/* Render the SVG icon */}
+                      </div>
+                      </a>
 
-      {SocialMediaData.map((item, index) => (
-              <a
-              key={index}
-              href={item.url}
-              label={item.label}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-900 hover:text-black  rounded-3xl transition-colors duration-300"
-              >
-              <div className="bg-white p-2 rounded-full hover:text-zinc-500 transition-colors duration-300">
-              {item.icon} {/* Render the SVG icon */}
-              </div>
-              </a>
-
-       ))}
+              ))}
+          </div>
      
       </div>
 

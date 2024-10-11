@@ -10,6 +10,7 @@ import Cart from './sections/Cart.js'
 import Contact from './sections/Contact.js'
 import Pricing from './sections/Pricing.js'
 import Login from './sections/Login.js'
+import Beat from './sections/Beat.js'
 
 // import './fonts/Geist/webfonts/Geist-ExtraBold.woff2';
 // import './fonts/Geist/webfonts/Geist-Bold.woff2';
@@ -27,6 +28,8 @@ const router = createBrowserRouter([
   { path: "/contact", element: <Contact /> },
   { path: "/pricing", element: <Pricing /> },
   { path: "/login", element: <Login /> },
+   // Dynamic route for beat
+   { path: "/beat/:uid", element: <Beat /> }, // :title is the dynamic parameter
 ])
 
 

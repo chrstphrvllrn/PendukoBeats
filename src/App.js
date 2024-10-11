@@ -181,7 +181,7 @@ function App() {
           closePopup={closePopup} 
           itemShareableLink={itemShareableLink}/>
          )
-        }
+      }
 
     </div>
   )

@@ -1,6 +1,24 @@
-import React from 'react'
+import React, { useState } from "react"
 
 function ShareableLink({ closePopup, itemShareableLink }) {
+    const [text, setText] = useState(`http://localhost:3000/beat/${itemShareableLink.uid}`)
+    const [isCopied, setIsCopied] = useState(false)
+
+    const copyToClipboard = async () => {
+        
+        if (text) {
+          try {
+            await navigator.clipboard.writeText(text)
+            setIsCopied(true)
+            setTimeout(() => setIsCopied(false), 2000)
+          } catch (err) {
+            console.error("Failed to copy text: ", err)
+            alert("Failed to copy text. Please try again.")
+          }
+        }
+      }
+
+
     return (
         <div>
 
@@ -47,17 +65,52 @@ function ShareableLink({ closePopup, itemShareableLink }) {
         </div>
         <div className="p-6 space-y-6">
         <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-right" for="name">Shareable Link</label>
-                      <input class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 col-span-3" id="name" value={itemShareableLink.file}/>
-          
-                    
+              <input class="flex h-9 w-full 
+              rounded-md border border-input bg-transparent px-3 
+              py-1 text-sm shadow-sm transition-colors file:border-0 
+              file:bg-transparent file:text-sm file:font-medium file:text-foreground 
+              placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 
+              focus-visible:ring-ring disabled:cursor-not-allowed 
+              disabled:opacity-50 col-span-3" 
+              id="name" 
+              value={`http://localhost:3000/beat/${itemShareableLink.uid}`}/>
+        
         </div>
-        <div className="flex items-center justify-end p-6 border-t border-gray-200 rounded-b">
-          <button
+        <div className="flex items-center justify-start p-6 border-t border-gray-200 rounded-b">
+          
+          
+          {/* <button
             onClick={closePopup}
             className="text-black bg-brand-primary hover:bg-brand-secondary focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center"
           >
             Close
-          </button>
+          </button> */}
+
+          <button
+        onClick={copyToClipboard}
+        disabled={!text}
+        className={`w-full text-black border bg-white hover:bg-zinc-100 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center flex flex-row  justify-center align-center${
+          text ? 'bg-zinc-200 hover:bg-zinc-100' : 'bg-gray-300 cursor-not-allowed'
+        }`}
+      >
+        {isCopied ? (
+          <>
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            Copied!
+          </>
+        ) : (
+          <>
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+            </svg>
+            Copy to Clipboard
+          </>
+        )}
+      </button>
+
+
         </div>
       </div>
     </div>
