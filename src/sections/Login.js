@@ -4,22 +4,36 @@ import { Link, useLocation } from 'react-router-dom'
 function Login() {
   return (
     <div className='w-full flex'>
-         <div className='w-1/2 h-[100vh] bg-[url("https://as2.ftcdn.net/v2/jpg/03/17/10/31/1000_F_317103153_30l4TcizhBYAa9gkCJ95YMsDam2FVhGO.jpg")] bg-[center_top_0rem]'>
-            <div className='w-full h-full flex flex-col items-start justify-center py-16 px-8 gap-10 backdrop-blur-sm backdrop-opacity-[0.8] '>
+         <div className='w-1/2 h-[100vh] 
+         
+         
+         bg-[url("https://www.bax-shop.co.uk/blog/wp-content/uploads/2021/04/blog_producer_muziektheorie.jpg")] 
+       
+        bg-cover
+        bg-right-bottom
+         
+         
+         '>  
+         {/* bg-[url("https://as2.ftcdn.net/v2/jpg/03/17/10/31/1000_F_317103153_30l4TcizhBYAa9gkCJ95YMsDam2FVhGO.jpg")] bg-[center_top_0rem] */}
+         
+              
+                
+            
+            <div className='w-full h-full flex flex-col items-start justify-center py-16 px-8 gap-10  '>
             </div>    
 
          </div>
 
          <div className='w-3/4 h-[100vh] flex flex-col items-center justify-center'>
            
-            <Link to="/" className='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-zinc-100 hover:text-accent-foreground h-9 px-4 py-2 absolute right-4 top-4 md:right-8 md:top-8'> 
+            <Link to="/" className='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-brand-zinc-100 hover:text-accent-foreground h-9 px-4 py-2 absolute right-4 top-4 md:right-8 md:top-8'> 
                 Back to Home
             </Link>
 
             <div className='w-1/2 h-[60vh]  rounded-md'>
                     <div className='flex flex-col p-6 space-y-1'>
                             <h1 className='font-semibold tracking-tight text-2xl'>Signin to your account</h1>
-                            <p className='text-sm text-zinc-500'>Don't have an account? Sign Up for a free.</p>
+                            <p className='text-sm text-brand-zinc-500'>Don't have an account? Sign Up for a free.</p>
                     </div>
                     <div className='p-6 pt-0 grid gap-4'>
                         <div className='grid gap-2'>
@@ -33,7 +47,7 @@ function Login() {
                             </button>
                             
                         </div >
-                        <div class="relative"><div class="absolute inset-0 flex items-center"><span class="w-full border-t"></span></div><div class="relative flex justify-center text-xs uppercase"><span class="bg-white px-2 text-zinc-500">Or continue with</span></div></div>
+                        <div class="relative"><div class="absolute inset-0 flex items-center"><span class="w-full border-t"></span></div><div class="relative flex justify-center text-xs uppercase"><span class="bg-brand-white px-2 text-brand-zinc-500">Or continue with</span></div></div>
                         <div class="grid gap-2">
                             <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email">Email</label>
                             <input class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" id="email" placeholder="you@example.com" type="email"/>
@@ -49,7 +63,7 @@ function Login() {
                         
                     </div>
                     <div class="flex items-center p-6 pt-0">
-                            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-green-500 text-white shadow hover:bg-[#18181b]/90 h-9 px-4 py-2 w-full">
+                            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-brand-primary text-black shadow hover:bg-brand-secondary h-9 px-4 py-2 w-full">
                            Login
                             </button>
                      </div>

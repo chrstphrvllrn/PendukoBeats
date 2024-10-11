@@ -19,13 +19,13 @@ function Player({currentAudio, Playlist, addToCart,  playSound,  songDurations, 
   return (
     <div className='w-full h-auto px-8 sm:px-16 md:px-16 lg:px-16 flex justify-center'>
       <div className='w-full sm:w-full md:w-full lg:w-full xl:w-full 2xl:w-full h-full flex flex-col items-start justify-start md:px-0 lg:px-8 py-10'>
-        <div className='border-b w-full flex items-center relative mb-4 '>
+        <div className='w-full flex items-center relative mb-4 '>
           {/* Search Input */}
           <input
             type='textfield'
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)} // Update search term
-            className='w-full border-b rounded-md flex h-16 py-2 focus:outline-none focus:ring-zinc-200 focus:ring-1 px-3 text-sm transition-colors hover:text-primary font-small text-primary pl-10'
+            className='w-full rounded-md flex h-12 py-2 focus:outline-none focus:bg-brand-zinc-100 focus:ring-zinc-200 focus:ring-0 px-3 text-sm transition-colors hover:text-primary font-small text-primary pl-10'
             placeholder='Search by title or tag'
           />
           <Search />

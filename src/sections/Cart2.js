@@ -104,7 +104,7 @@ function Cart({ cart, setCart }) {
                     </div>
                     <div className="w-2/4 h-full flex flex-col gap-2 pl-4 justify-between">
                       <p className="text-sm font-bold">{item.title}</p>
-                      <p className="text-xs text-zinc-400">{item.tags}</p>
+                      <p className="text-xs text-brand-zinc-400">{item.tags}</p>
                       <select id="colors" name="colors" className=' px-2 py-1 border rounded-sm text-xs w-[7vw] cursor-pointer hover:text-bronze-primary'>
                           <option value="MP3">MP3</option>
                           <option value="WAV">WAV</option>
@@ -116,10 +116,10 @@ function Cart({ cart, setCart }) {
                       
                       <p className="w-auto h-auto text-sm font-medium">
                         <label for="colors"></label>
-                        <p className="text-sm font-medium text-zinc-700">$ {item.price}</p>
+                        <p className="text-sm font-medium text-brand-zinc-700">$ {item.price}</p>
                     
                       </p>
-                      <div className='text-zinc-500 hover:text-zinc-800 cursor-pointer'>
+                      <div className='text-brand-zinc-500 hover:text-brand-zinc-800 cursor-pointer'>
                         <Remove />
                       </div>
                     </div>

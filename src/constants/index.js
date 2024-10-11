@@ -6,7 +6,7 @@ import Whatsapp from '../components/socialmedia/Whatsapp';
 
 export const HeroData = {
     headline1: 'Buy Premium Beats',
-    headline2: 'for Your Next Hit',
+    headline2: 'for your next hit',
     subheadline1: 'Discover a curated collection of high-quality beats crafted by top producers.',
     subheadline2: 'Find the perfect sound to inspire your next track and make your music stand out.'
 }

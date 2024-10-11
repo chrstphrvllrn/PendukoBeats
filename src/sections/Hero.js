@@ -23,19 +23,20 @@ function Hero() {
             
             <div className='w-full h-full  py-14 px-8 sm:px-16 md:px-16  backdrop-blur-md'>
                 {/* backdrop-blur-sm */}
-                <div className='w-full gap-9 flex flex-col items-start justify-center'>
-                
-                    <h1 class="text-4xl xl:text-4xl 2xl:text-6xl text-white font-extrabold select-none ">{HeroData.headline1}<br></br><span className='text-white font-normal'>{HeroData.headline2}</span></h1>
+                <div className='w-full gap-9 flex flex-col items-start justify-center px-8'>
+                    <div className='flex flex-col gap-2'>
+                    <h1 class="text-4xl xl:text-4xl 2xl:text-6xl text-brand-white font-extrabold select-none ">{HeroData.headline1}</h1>
+                    <span className='text-4xl xl:text-4xl 2xl:text-6xl text-brand-white font-normal'>{HeroData.headline2}</span>
+                    </div>
+                    {/* <p class="text-sm font-medium text-brand-zinc-400 select-none">{HeroData.subheadline1}<br></br>{HeroData.subheadline2}</p> */}
 
-                    {/* <p class="text-sm font-medium text-zinc-400 select-none">{HeroData.subheadline1}<br></br>{HeroData.subheadline2}</p> */}
-
-                    <div className='flex gap-5'>
+                    <div className='flex gap-4'>
                     <buton onClick={() => { const element = document.getElementById('pricing'); element?.scrollIntoView({ behavior: 'smooth' }) }} >
                           <Button text='Check Pricing' color='bg-brand-primary hover:bg-brand-secondary' />
                     </buton>
-                      <buton onClick={() => { const element = document.getElementById('footer'); element?.scrollIntoView({ behavior: 'smooth' }) }} className='text-white flex items-center cursor-pointer' >
+                      <buton onClick={() => { const element = document.getElementById('footer'); element?.scrollIntoView({ behavior: 'smooth' }) }} className='text-brand-white flex items-center cursor-pointer' >
                           
-                          <Button text='Get in touch' color='border border-white text-white hover:border-zinc-500 hover:text-zinc-500' />
+                          <Button text='Get in touch' color='border border-white text-brand-white hover:border-brand-zinc-500 hover:text-brand-zinc-500' />
                     </buton>  
                   
                     </div>

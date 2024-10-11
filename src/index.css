@@ -59,6 +59,22 @@ body {
     --color-bronze-primary: 35deg 91.67% 32.94%;  
     --color-lightgray-primary: 240deg 7%, 96%;
     --color-goldenyellow-primary: 42deg 89% 44%;
+    --color-brand-white: 0deg 0% 100%;
+  
+    --color-brand-zinc-50: 240deg 7% 98%;
+    --color-brand-zinc-100: 240deg 4% 96%;
+    --color-brand-zinc-200: 240deg 6% 90%;
+    --color-brand-zinc-300: 240deg 7% 84%;
+    --color-brand-zinc-400: 240deg 9% 64%;
+    --color-brand-zinc-500: 240deg 5% 47%;
+    --color-brand-zinc-600: 240deg 7% 36%;
+    --color-brand-zinc-700: 240deg 9% 27%;
+    --color-brand-zinc-800: 240deg 5% 16%;
+    --color-brand-zinc-900: 240deg 6% 10%;
+    --color-brand-zinc-950: 240deg 8% 5%;
+
+    --color-brand-gray-400: 0deg 0%, 90%;
+    --color-brand-gray-700: 0deg 0%, 31%;
   }
  
   .dark {

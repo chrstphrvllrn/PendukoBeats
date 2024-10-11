@@ -5,18 +5,18 @@ import { Playlist } from '../constants'; // Import your playlist data
 const Beat = () => {
   const { uid } = useParams(); // Extract 'id' from URL, it's a string
 
-  // Find the beat in the playlist by comparing the 'id' as a string
- 
+  // Find the beat in the playlist by comparing the 'uid' as a string
   const beat = Playlist.find(beat => beat.uid == uid);
     console.log(beat)
-  // If no beat is found, return a message
+ 
   if (!beat) {
+     // If no beat is found, return a message
     return <div>Beat not found! uid:{uid}</div>;
   }
 
   return (
-    <div className='w-full h-[100vh] bg-zinc-100 flex items-center justify-center'>
-            <div className="w-1/4 mx-auto bg-white shadow-lg rounded-lg overflow-hidden bg-black">
+    <div className='w-full h-[100vh] bg-brand-zinc-100 flex items-center justify-center'>
+            <div className="w-full md:w-1/4 mx-auto bg-brand-white shadow-lg rounded-lg overflow-hidden bg-black">
             <img 
             src={beat.thumbnail} 
             alt={beat.title} 
@@ -35,7 +35,7 @@ const Beat = () => {
                 <p>Duration: {beat.duration}</p>
                 <p>BPM: {beat.bpm}</p>
             </div>
-            <audio controls className="w-full">
+            <audio controls controlsList="nodownload noplaybackrate nofullscreen noremoteplayback" className="w-full bg-none">
                 <source src={beat.file} type="audio/mpeg" />
                 Your browser does not support the audio element.
             </audio>

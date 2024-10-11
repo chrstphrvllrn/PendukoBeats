@@ -27,7 +27,7 @@ function ShareableLink({ closePopup, itemShareableLink }) {
                 onClick={closePopup} // Close pop-up when clicking on the background
             >
                 <div
-                    className="bg-white w-full max-w-lg h-auto max-h-screen p-8 rounded-lg shadow-lg  max-w-[425px]"
+                    className="bg-brand-white w-full max-w-lg h-auto max-h-screen p-8 rounded-lg shadow-lg  max-w-[425px]"
                     onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the pop-up
                 >
 
@@ -41,17 +41,17 @@ function ShareableLink({ closePopup, itemShareableLink }) {
                    
 
                     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-md">
+      <div className="bg-brand-white rounded-lg shadow-xl w-full max-w-md">
         <div className="flex items-start justify-between p-5 border-b border-gray-200 rounded-t">
                 <div className='flex gap-5'> 
                     <div>
-                        <img src={itemShareableLink.thumbnail} className="w-[3em] aspect-square rounded-sm hidden md:flex" />
+                        <img src={itemShareableLink.thumbnail} className="w-[3em] aspect-square rounded-sm  flex" />
                     </div>
                     <div>
                         <h3 className="text-xl font-semibold text-gray-900">
                             {itemShareableLink.title}
                         </h3>
-                        <p className="text-xs text-zinc-400">{itemShareableLink.tags}</p>
+                        <p className="text-xs text-brand-zinc-400">{itemShareableLink.tags}</p>
                     </div>
                 </div>
           <button
@@ -89,8 +89,8 @@ function ShareableLink({ closePopup, itemShareableLink }) {
           <button
         onClick={copyToClipboard}
         disabled={!text}
-        className={`w-full text-black border bg-white hover:bg-zinc-100 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center flex flex-row  justify-center align-center${
-          text ? 'bg-zinc-200 hover:bg-zinc-100' : 'bg-gray-300 cursor-not-allowed'
+        className={`w-full text-black border bg-brand-white hover:bg-brand-zinc-100 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center flex flex-row  justify-center align-center${
+          text ? 'bg-brand-zinc-200 hover:bg-brand-zinc-100' : 'bg-gray-300 cursor-not-allowed'
         }`}
       >
         {isCopied ? (

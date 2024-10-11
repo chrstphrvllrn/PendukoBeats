@@ -51,13 +51,13 @@ function Cart({ cart, setCart }) {
 
   console.log(cart)
   return (
-    <div className='w-full h-full px-4 md:px-16 pb-16 bg-zinc-50'>
+    <div className='w-full h-full px-4 md:px-16 pb-16 bg-brand-zinc-50'>
       {/* <Nav /> */}
       <h1 className='text-2xl font-bold  pt-10 pb-5'>Order Details</h1>
 
       <div className='w-full h-full flex flex-col md:flex-col lg:flex-row gap-5 md:gap-5 lg:gap-0'>
 
-        <div className='w-full md:w-full lg:w-2/3 h-full flex flex-col  items-start justify-center pb-8 px-0 md:px-8 border rounded-lg mr-10  bg-white '>
+        <div className='w-full md:w-full lg:w-2/3 h-full flex flex-col  items-start justify-center pb-8 px-0 md:px-8 border rounded-lg mr-10  bg-brand-white '>
 
 
 
@@ -79,7 +79,7 @@ function Cart({ cart, setCart }) {
                       </div>
                       <div>
                       <p className="text-sm font-bold">{item.title}</p>
-                      <p className="text-xs text-zinc-400">{item.tags}</p>
+                      <p className="text-xs text-brand-zinc-400">{item.tags}</p>
                       </div>
                     </div>
                 
@@ -94,13 +94,13 @@ function Cart({ cart, setCart }) {
                     <div className="w-1/4 h-full flex flex-col gap-2 pl-4 justify-center items-end">
                     <div className="w-auto h-full text-sm font-medium">
                         <label for="colors"></label>
-                        <p className="text-sm font-medium text-zinc-700">$ {item.price}</p>
+                        <p className="text-sm font-medium text-brand-zinc-700">$ {item.price}</p>
                       </div>
                     </div>
                     <div className="flex flex-col w-1/4 h-full justify-between items-end gap-0">
                       
                    
-                      <div className='text-zinc-500 hover:text-zinc-800 cursor-pointer'>
+                      <div className='text-brand-zinc-500 hover:text-brand-zinc-800 cursor-pointer'>
                         <Remove />
                       </div>
                     </div>
@@ -117,7 +117,7 @@ function Cart({ cart, setCart }) {
               <table className="w-full caption-bottom text-sm">
 
                 <thead className="[&_tr]:border-b">
-                  <tr className="border-b transition-colors hover:bg-zinc-50 data-[state=selected]:bg-muted">
+                  <tr className="border-b transition-colors hover:bg-brand-zinc-50 data-[state=selected]:bg-muted">
                     <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 w-[200px]">
                       Title
                     </th>
@@ -136,7 +136,7 @@ function Cart({ cart, setCart }) {
                   {cart && cart.map((item) => (
                     <tr
                       key={item.title}
-                      className="border-b transition-colors hover:bg-zinc-100 data-[state=selected]:bg-muted"
+                      className="border-b transition-colors hover:bg-brand-zinc-100 data-[state=selected]:bg-muted"
                     >
                       <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium">
 
@@ -146,7 +146,7 @@ function Cart({ cart, setCart }) {
                           </div>
                           <div>
                             <p className="text-sm font-bold">{item.title}</p>
-                            <p className="text-xs text-zinc-400">{item.tags}</p>
+                            <p className="text-xs text-brand-zinc-400">{item.tags}</p>
                           </div>
                         </div>
 
@@ -180,7 +180,7 @@ function Cart({ cart, setCart }) {
 
               </table>
               {
-                cart && cart.length === 0 && <p className='w-full text-center text-zinc-400 p-4 text-sm'>Add beats to your cart</p>
+                cart && cart.length === 0 && <p className='w-full text-center text-brand-zinc-400 p-4 text-sm'>Add beats to your cart</p>
               }
             </div>
           </div>
@@ -189,13 +189,13 @@ function Cart({ cart, setCart }) {
 
 
 
-        <div className='w-full md:w-full lg:w-1/3 h-full flex flex-col items-start justify-start py-0 px-8 bg-primary border rounded-lg bg-white'>
+        <div className='w-full md:w-full lg:w-1/3 h-full flex flex-col items-start justify-start py-0 px-8 bg-primary border rounded-lg bg-brand-white'>
 
           <div className='w-full h-[0vh] gap-2 flex flex-col'>
          
 
           </div>
-          <h1 className="text-md py-5 font-bold text-zinc-600">Contact information</h1>
+          <h1 className="text-md py-5 font-bold text-brand-zinc-600">Contact information</h1>
 
           <div className="w-full h-auto  py-3 " >
 
@@ -207,7 +207,7 @@ function Cart({ cart, setCart }) {
 
           </div>
 
-          <h1 className="text-md  py-5 font-bold text-zinc-600">Payment Details</h1>
+          <h1 className="text-md  py-5 font-bold text-brand-zinc-600">Payment Details</h1>
           <div className="w-full h-auto  py-3 " >
             <div class="grid gap-2">
               <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="Card number">Card number</label>
@@ -248,7 +248,7 @@ function Cart({ cart, setCart }) {
             </div>
           </div>
 
-          <h1 className="text-md  py-5 font-bold text-zinc-600">Billing address</h1>
+          <h1 className="text-md  py-5 font-bold text-brand-zinc-600">Billing address</h1>
           <div className="w-full h-auto  py-3 " >
             <div class="grid gap-2">
               <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="Address">Address</label>

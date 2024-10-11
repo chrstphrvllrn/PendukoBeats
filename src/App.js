@@ -26,7 +26,7 @@ function App() {
   const [audioIsPlaying, setAudioIsPlaying] = useState(false);
   const [songDurations, setSongDurations] = useState({}); // Store actual durations of all songs
   const [currentTime, setCurrentTime] = useState(0); // State to store current time of the audio
-  const [volume, setVolume] = useState(1); // State to store the volume level (default: 1 = full volume)
+  const [volume, setVolume] = useState(.4); // State to store the volume level (default: 1 = full volume)
   //Shareable link
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [itemShareableLink, setItemShareableLink] = useState(null)

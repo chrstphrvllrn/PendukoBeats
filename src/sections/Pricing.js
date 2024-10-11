@@ -10,11 +10,11 @@ function Pricing() {
     <div id='pricing'>
         {/* <Nav/> */}
 
-        <div className='w-full h-auto px-8 sm:px-16 bg-zinc-50  py-10 select-none flex flex-col items-center'>
+        <div className='w-full h-auto px-8 sm:px-16 bg-brand-zinc-50  py-10 select-none flex flex-col items-center'>
 
         <h1 className='text-4xl xl:text-5xl font-bold my-10 select-none w-full flex items-center justify-center'>Licensing</h1>
 
-          <p className='text-zinc-500 my-10 select-none w-3/4 flex items-center justify-center text-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          <p className='text-brand-zinc-500 my-10 select-none w-3/4 flex items-center justify-center text-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
             
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-y-10 w-full h-[auto] md:h-[auto] lg:h-[80vh] flex flex-col sm:flex-col md:flex-col lg:flex-row px-0 sm:px-0 md:px-0 lg:px-0 xl:px-10 items-start justify-center md:items-center gap-5 py-10'>
     
@@ -22,7 +22,7 @@ function Pricing() {
                   // text-[#dfdfdf] bg-[rgb(17,24,39)]
                   // border
 
-                    <div className='bg-white  h-[auto] p-6 flex flex-col gap-5 rounded-xl shadow-md hover:shadow-xl hover:scale-100 transition-all duration-300 transform hover:-translate-y-5'>
+                    <div className='bg-brand-white  h-[auto] p-6 flex flex-col gap-5 rounded-xl shadow-md hover:shadow-xl hover:scale-100 transition-all duration-300 transform hover:-translate-y-5'>
                     <div className='flex gap-1  items-center'>
                       <h2 className='text-3xl font-bold'>{item.title}</h2>
                       
@@ -37,7 +37,7 @@ function Pricing() {
                        
                     </div>
                
-                      <p className='text-zinc-400 text-xs'>{item.description}</p>
+                      <p className='text-brand-zinc-400 text-xs'>{item.description}</p>
                       <div className='flex items-center gap-2 '>
                         <p className='text-goldenyellow-primary text-xl'>{item.currency}</p>
                         <p className='text-4xl font-bold text-goldenyellow-primary'>{item.price}</p>

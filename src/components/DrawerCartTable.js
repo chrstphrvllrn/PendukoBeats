@@ -35,7 +35,7 @@ function CartTable({cart, setCart}) {
               <table className="w-full caption-bottom text-sm">
 
                 <thead className="[&_tr]:border-b">
-                  <tr className="border-b transition-colors hover:bg-zinc-50 data-[state=selected]:bg-muted">
+                  <tr className="border-b transition-colors hover:bg-brand-zinc-50 data-[state=selected]:bg-muted">
                     <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 w-[200px]">
                       Title
                     </th>
@@ -54,7 +54,7 @@ function CartTable({cart, setCart}) {
                   {cart && cart.map((item) => (
                     <tr
                       key={item.title}
-                      className=" text-xs border-b transition-colors hover:bg-zinc-100 data-[state=selected]:bg-muted"
+                      className=" text-xs border-b transition-colors hover:bg-brand-zinc-100 data-[state=selected]:bg-muted"
                     >
                       <td className="px-4 py-2 align-middle [&:has([role=checkbox])]:pr-0 font-medium">
 
@@ -64,7 +64,7 @@ function CartTable({cart, setCart}) {
                           </div>
                           <div>
                             <p className="text-sm font-bold">{item.title}</p>
-                            <p className="text-xs text-zinc-400">{item.tags}</p>
+                            <p className="text-xs text-brand-zinc-400">{item.tags}</p>
                           </div>
                         </div>
                       </td>
@@ -72,7 +72,7 @@ function CartTable({cart, setCart}) {
                         <select
                           value={item.license || 'MP3'}
                           onChange={(e) => handleLicenseChange(item.id, e.target.value)}
-                          id="colors" name="colors" className=' px-3 py-2 border rounded-md text-xs w-full cursor-pointer hover:text-bronze-primary'>
+                          id="license" name="license" className=' px-3 py-2 rounded-md text-xs w-full cursor-pointer'>
                           <option selected value="MP3">MP3</option>
                           <option value="WAV">WAV</option>
                           <option value="Trackout">Trackout</option>
@@ -84,7 +84,8 @@ function CartTable({cart, setCart}) {
                       </td>
                       <td className="px-4 py-2 align-middle [&:has([role=checkbox])]:pr-0 text-right">
                         <button onClick={() => handleRemoveItem(item)}
-                          className="hover:text-bronze-primary inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3"
+                          className="hover:text-bronze-primary inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3"
+                          // border border-input
                         >
                           <Remove />
                         </button>
@@ -96,7 +97,7 @@ function CartTable({cart, setCart}) {
 
               </table>
               {
-                cart && cart.length === 0 && <p className='w-full text-center text-zinc-400 p-4 text-sm'>Add beats to your cart</p>
+                cart && cart.length === 0 && <p className='w-full text-center text-brand-zinc-400 p-4 text-sm'>Add beats to your cart</p>
               }
             </div>
           </div>

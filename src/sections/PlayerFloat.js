@@ -74,7 +74,7 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
 
   {/* Display current song info */}
   {currentAudio && (
-          <div className='py-0 bg-black w-full flex items-center fixed bottom-0 left-0 px-2 md:px-10 text-white gap-4 backdrop-blur-md z-40'>
+          <div className='py-0 bg-black w-full flex items-center fixed bottom-0 left-0 px-2 md:px-10 text-brand-white gap-4 backdrop-blur-md z-40'>
             <div className='w-full sm:w-12/12 md:w-6/12 lg:w-4/12 flex items-center'>
               {/* Album Art */}
               <div className='mr-4'>
@@ -83,19 +83,19 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
 
               {/* Song Details */}
               <div className='flex-1'>
-                <h3 className='font-bold text-md'><strong className='text-zinc-400'> </strong>{currentAudio.title}</h3>
-                <p className='text-xs text-zinc-400'><strong className='text-black'></strong> {currentAudio.tags}</p>
-                {/* <p className='text-xs'><strong className='text-zinc-400'>Duration:</strong> {formatTime(songDurations[currentAudio.id])}</p> */}
+                <h3 className='font-bold text-md'><strong className='text-brand-gray-400'> </strong>{currentAudio.title}</h3>
+                <p className='text-xs text-brand-zinc-400'> {currentAudio.tags}</p>
+                {/* <p className='text-xs'><strong className='text-brand-zinc-400'>Duration:</strong> {formatTime(songDurations[currentAudio.id])}</p> */}
 
               </div >
               <div className='flex items-center gap-2'>
-              <button onClick={playPrevSong} className='p-2 text-white text-white rounded-md hover:text-zinc-400 cursor-pointer'>
+              <button onClick={playPrevSong} className='p-2 text-brand-gray-400 rounded-md hover:text-brand-zinc-400 cursor-pointer'>
                 <Prev />
               </button>
-              <button onClick={togglePlayPause} className='p-2 text-white text-white rounded-md hover:text-zinc-400 cursor-pointer'>
+              <button onClick={togglePlayPause} className='p-2 text-brand-gray-400  rounded-md hover:text-brand-zinc-400 cursor-pointer'>
                 { audioIsPlaying ?  <Pause/>  :  <Play/>  }
               </button>
-              <button onClick={playNextSong} className='p-2 text-white text-white rounded-md hover:text-zinc-400 cursor-pointer'>
+              <button onClick={playNextSong} className='p-2 text-brand-gray-400 rounded-md hover:text-brand-zinc-400 cursor-pointer'>
                 <Next />
               </button>
               </div>
@@ -111,13 +111,13 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
                 max={songDurations[currentAudio.id] || 0}
                 value={currentTime}
                 onChange={handleProgressChange}
-                className="relative w-full bg-gray-300 rounded-full  cursor-pointer absolute top-0 left-0 h-1 accent-brand-primary rounded-full"
+                className="relative w-full rounded-full  cursor-pointer absolute top-0 left-0 h-[0.125rem] accent-brand-primary rounded-full"
               />
             </div>
             <div className="w-3/12 sm:w-0/12 md:w-1/12 lg:w-2/12 flex items-center hidden md:flex ">
               <label className="mr-2">
                 {/* Mute/Unmute Button */}
-                <button onClick={toggleMute} className='p-2 text-white text-white rounded-md hover:text-zinc-400 cursor-pointer'>
+                <button onClick={toggleMute} className='p-2 text-brand-white rounded-md hover:text-brand-zinc-400 cursor-pointer'>
                   { isMuted ? <Mute/>  :  <Unmute/>  }
                 </button>
               </label>
@@ -128,7 +128,7 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
                 step="0.01"
                 value={volume}
                 onChange={handleVolumeChange}
-                className="w-full accent-brand-primary h-1"
+                className="w-full accent-brand-primary bg-brand-primary fill-brand-primary text-brand-primary h-[0.125rem]"
               />
             </div>
 

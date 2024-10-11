@@ -10,7 +10,7 @@ function Contact() {
 
             <div className='w-full h-full flex items-center justify-center '>
 
-            <div className='w-1/4  h-full bg-white'></div>
+            <div className='w-1/4  h-full bg-brand-white'></div>
 
             {/* <div class="col-span-2 grid items-start gap-6 lg:col-span-2 lg:grid-cols-2 xl:col-span-1 xl:grid-cols-1">
                     <div class="flex items-center justify-center w-full">
