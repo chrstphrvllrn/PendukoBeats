@@ -1,18 +1,13 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import Download from './Download'
 import AddToCart from './AddToCart'
 import Share from './Share'
 import PlayCover from './PlayCover'
 import PauseCover from './PauseCover'
+
  
 
-function Song({ id, thumbnail, title, tags, duration, price, bpm, file, isPlaying, currentAudioId, handleClick, item}) {
-
-    const handleButtonClick = (event) => {
-        // Stop the event from bubbling up to the list item
-        event.stopPropagation()
-        console.log('Button clicked!')
-    }
+function Song({ id, thumbnail,  title, tags, duration, price, bpm, file, isPlaying, currentAudioId, addToCart, item, isPresent, cart, sharePopup}) {
 
 
     return (
@@ -45,27 +40,35 @@ function Song({ id, thumbnail, title, tags, duration, price, bpm, file, isPlayin
             </div>
 
             <div className='w-2/4 flex items-center justify-end gap-2 md:gap-5'>
-                <div onClick={handleButtonClick} className='flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-white hover:bg-zinc-100 hover:text-accent-foreground h-9 rounded-md px-3'>
+                <div onClick={(event)=>{ 
+                    event.stopPropagation()
+                    // sharePopup(item);
+                    }  } className='flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-white hover:bg-zinc-100 hover:text-accent-foreground h-9 rounded-md px-3'>
                     <Download />
                     <p className='text-black text-xs font-medium hidden sm:hidden md:flex lg:flex xl:flex'>Download</p>
                 </div>
 
-                <div onClick={handleButtonClick} class=" items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-white hover:bg-zinc-100 hover:text-accent-foreground h-9 rounded-md px-3 hidden md:flex" data-id="33">
+                <div onClick={(event)=>{ 
+                    event.stopPropagation()
+                    sharePopup(item);
+                    }  }  class=" items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-white hover:bg-zinc-100 hover:text-accent-foreground h-9 rounded-md px-3 hidden md:flex" data-id="33">
                     <Share />
                     <p className='text-black text-xs font-medium  hidden sm:hidden md:flex lg:flex xl:flex'>Share</p>
                 </div>
 
                 <div onClick={(event)=>{ 
                     event.stopPropagation()
-                    handleClick(item)
-                }
-                } className='flex gap-2 items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-white hover:bg-zinc-100 hover:text-accent-foreground h-9 rounded-md px-3'>
+                    addToCart(item)  }  } 
+                    className='flex gap-2 items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-white hover:bg-zinc-100 hover:text-accent-foreground h-9 rounded-md px-3'>
                     <AddToCart isWhite={false} />
       
-                    <p className='text-black  text-xs font-medium'>Add</p>
+                    <p className='text-black  text-xs font-medium'> {cart.find((product) => product.id === item.id) ? <p className="text-zinc-400">Added</p> : 'Add'} </p>
                 </div>
 
             </div>
+
+
+            
 
 
 
