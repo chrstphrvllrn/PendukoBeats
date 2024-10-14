@@ -17,6 +17,7 @@ module.exports = {
                   50:  "hsl(var(--color-brand-zinc-50))",
                   100:  "hsl(var(--color-brand-zinc-100))",
                   200:  "hsl(var(--color-brand-zinc-200))",
+                  300:  "hsl(var(--color-brand-zinc-300))",
                   400:  "hsl(var(--color-brand-zinc-400))",
                   500:  "hsl(var(--color-brand-zinc-500))",
                   700:  "hsl(var(--color-brand-zinc-700))",

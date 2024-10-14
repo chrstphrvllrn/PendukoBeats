@@ -46,8 +46,12 @@ url('../src/fonts/Geist/ttf/Geist-Medium.ttf') format('truetype');
 
 body {
   font-family: 'Geist', sans-serif;
-}
 
+}
+::selection{
+  color: hsl(35deg 91.67% 32.94%);
+  background: hsl(54deg 91.67% 95.29%); 
+}
 
  
 @layer base {
@@ -56,7 +60,8 @@ body {
     --color-primary: 255 115 179;
     --color-brand-secondary: 45deg 100% 50%;
     --color-ivory-primary: 54deg 91.67% 95.29%;
-    --color-bronze-primary: 35deg 91.67% 32.94%;  
+    --color-bronze-primary: 51deg 100% 32.94%; 
+    /* --color-bronze-primary: 35deg 91.67% 32.94%;   */
     --color-lightgray-primary: 240deg 7%, 96%;
     --color-goldenyellow-primary: 42deg 89% 44%;
     --color-brand-white: 0deg 0% 100%;

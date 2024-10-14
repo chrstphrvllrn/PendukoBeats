@@ -78,7 +78,7 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
             <div className='w-full sm:w-12/12 md:w-6/12 lg:w-4/12 flex items-center'>
               {/* Album Art */}
               <div className='mr-4'>
-                <img src={currentAudio.thumbnail} alt={currentAudio.title} className='w-12 h-12 rounded-md' />
+                <img src={currentAudio.thumbnail} alt={currentAudio.title} className='w-10 h-auto aspect-square rounded-md' />
               </div>
 
               {/* Song Details */}
@@ -92,7 +92,7 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
               <button onClick={playPrevSong} className='p-2 text-brand-gray-400 rounded-md hover:text-brand-zinc-400 cursor-pointer'>
                 <Prev />
               </button>
-              <button onClick={togglePlayPause} className='p-2 text-brand-gray-400  rounded-md hover:text-brand-zinc-400 cursor-pointer'>
+              <button onClick={togglePlayPause} className='p-1 text-brand-gray-400  rounded-md hover:text-brand-zinc-400 cursor-pointer'>
                 { audioIsPlaying ?  <Pause/>  :  <Play/>  }
               </button>
               <button onClick={playNextSong} className='p-2 text-brand-gray-400 rounded-md hover:text-brand-zinc-400 cursor-pointer'>
@@ -111,7 +111,7 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
                 max={songDurations[currentAudio.id] || 0}
                 value={currentTime}
                 onChange={handleProgressChange}
-                className="relative w-full rounded-full  cursor-pointer absolute top-0 left-0 h-[0.125rem] accent-brand-primary rounded-full"
+                className="relative w-full rounded-full  cursor-pointer absolute top-0 left-0 h-1 bg-none accent-brand-primary rounded-full"
               />
             </div>
             <div className="w-3/12 sm:w-0/12 md:w-1/12 lg:w-2/12 flex items-center hidden md:flex ">
@@ -128,7 +128,7 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
                 step="0.01"
                 value={volume}
                 onChange={handleVolumeChange}
-                className="w-full accent-brand-primary bg-brand-primary fill-brand-primary text-brand-primary h-[0.125rem]"
+                className="w-full accent-brand-primary bg-brand-primary fill-brand-primary text-brand-primary h-1"
               />
             </div>
 

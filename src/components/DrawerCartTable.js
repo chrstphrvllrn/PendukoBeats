@@ -31,7 +31,7 @@ function CartTable({cart, setCart}) {
 
           </div>
         <div className=" container mx-auto py-0 ">
-            <div className="rounded-md border-0 md:border overflow-y-auto flex-1 max-h-[50vh] md:max-h-[65vh]">
+            <div className="rounded-md border-0 md:border overflow-y-auto flex-1 max-h-[50vh] md:max-h-[55vh]">
               <table className="w-full caption-bottom text-sm">
 
                 <thead className="[&_tr]:border-b">

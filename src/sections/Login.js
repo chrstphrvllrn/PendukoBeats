@@ -3,34 +3,28 @@ import { Link, useLocation } from 'react-router-dom'
 
 function Login() {
   return (
-    <div className='w-full flex'>
-         <div className='w-1/2 h-[100vh] 
-         
-         
-         bg-[url("https://www.bax-shop.co.uk/blog/wp-content/uploads/2021/04/blog_producer_muziektheorie.jpg")] 
-       
-        bg-cover
-        bg-right-bottom
-         
-         
-         '>  
+    <div className='w-full flex flex-col md:flex-col lg:flex-row'>
+         <div className='w-[100%] h-[40vh]  md:w-[100%] md:h-[30vh] lg:w-[45%] lg:h-[100vh]
+  bg-[url("https://as2.ftcdn.net/v2/jpg/05/26/27/85/1000_F_526278597_afLYZS2QboI6ixTjojpW9KJjnr9akTrG.jpg")]
+         bg-cover
+         bg-top-center
+         '> 
+              {/* bg-[url("https://as2.ftcdn.net/v2/jpg/05/26/27/85/1000_F_526278597_afLYZS2QboI6ixTjojpW9KJjnr9akTrG.jpg")]  */}
+         {/* bg-[url("https://www.bax-shop.co.uk/blog/wp-content/uploads/2021/04/blog_producer_muziektheorie.jpg")]  */}
+        
          {/* bg-[url("https://as2.ftcdn.net/v2/jpg/03/17/10/31/1000_F_317103153_30l4TcizhBYAa9gkCJ95YMsDam2FVhGO.jpg")] bg-[center_top_0rem] */}
-         
-              
-                
-            
             <div className='w-full h-full flex flex-col items-start justify-center py-16 px-8 gap-10  '>
             </div>    
 
          </div>
 
-         <div className='w-3/4 h-[100vh] flex flex-col items-center justify-center'>
+         <div className='w-[100%] h-[60vh] md:w-[100%] md:h-[70vh] lg:w-[55%] lg:h-[100vh]  flex flex-col items-center justify-center'>
            
-            <Link to="/" className='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-brand-zinc-100 hover:text-accent-foreground h-9 px-4 py-2 absolute right-4 top-4 md:right-8 md:top-8'> 
+            <Link to="/" className='text-white md:text-white lg:text-black inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-brand-zinc-100 hover:text-accent-foreground h-9 px-4 py-2 absolute right-4 top-4 md:right-8 md:top-8'> 
                 Back to Home
             </Link>
 
-            <div className='w-1/2 h-[60vh]  rounded-md'>
+            <div className='w-[85%] md:w-3/4 lg:w-3/4 rounded-md'>
                     <div className='flex flex-col p-6 space-y-1'>
                             <h1 className='font-semibold tracking-tight text-2xl'>Signin to your account</h1>
                             <p className='text-sm text-brand-zinc-500'>Don't have an account? Sign Up for a free.</p>
