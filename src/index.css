@@ -80,6 +80,20 @@ body {
 
     --color-brand-gray-400: 0deg 0%, 90%;
     --color-brand-gray-700: 0deg 0%, 31%;
+
+
+    --color-primary-50:  0deg 0% 100%; /*bg primary*/
+    --color-primary-100: 228deg 100% 99%; /*bg secondary*/
+    --color-primary-200: 213deg 20% 38%; /* Grey text */
+    --color-primary-300:  250deg 14% 8%; /* black text */
+    --color-primary-400:  0deg 0% 87%; /* lines */
+    --color-primary-500:  228deg 12% 92%; /*lines 2 */
+    --color-secondary-300: 252deg 96% 65%; /* violet text */
+    --color-secondary-400: 254deg 100% 97%; /* bg violet */
+    --color-secondary-500: 220deg 23% 97%;  /* search bg */
+    --color-secondary-600: 222deg 14% 32%; /* search text */
+    --color-secondary-700: 220deg 25% 98%; /* table header bg */
+    --color-secondary-800: 150deg 100% 99%; /* table row bg */
   }
  
   .dark {
@@ -89,3 +103,96 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.autoplay-progress {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.2);
+ 
+}
+
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: rgba(255, 255, 255, 0.2);
+  fill: none;
+  stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}
+
+
+/* .swiper-pagination-bullet-active{
+  background: #ffd900 !important;
+} */
+.swiper-pagination-bullet{
+  background: rgb(255, 250, 221, 0.7) !important;
+}
+
+
+/* Shimmer effect */
+/* .shimmer {
+  position: relative;
+  background: #e0e0e0;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+} */

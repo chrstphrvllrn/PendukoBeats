@@ -26,7 +26,7 @@ function Cart({ cart, setCart }) {
   // Handle license change and update the cart
   const handleLicenseChange = (itemId, selectedLicense) => {
     const updatedCart = cart.map(item =>
-      item.id === itemId ? { ...item, license: selectedLicense, price: licensePrices[selectedLicense] } : item
+      item._id === itemId ? { ...item, license: selectedLicense, price: licensePrices[selectedLicense] } : item
     );
     setCart(updatedCart);
   };
@@ -142,7 +142,7 @@ function Cart({ cart, setCart }) {
 
                         <div className="flex gap-0 md:gap-5 items-center">
                           <div>
-                            <img src={item.thumbnail} className="w-[3em] aspect-square rounded-sm hidden md:flex" />
+                            <img src={item.thumbnailUrl} className="w-[3em] aspect-square rounded-sm hidden md:flex" />
                           </div>
                           <div>
                             <p className="text-sm font-bold">{item.title}</p>
@@ -152,11 +152,11 @@ function Cart({ cart, setCart }) {
 
 
                       </td>
-                      <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0">
+                      <td className="md:p-4 align-middle [&:has([role=checkbox])]:pr-0">
                         <select
                           value={item.license || 'MP3'}
-                          onChange={(e) => handleLicenseChange(item.id, e.target.value)}
-                          id="colors" name="colors" className=' px-3 py-2 border rounded-md text-xs w-full cursor-pointer hover:text-bronze-primary'>
+                          onChange={(e) => handleLicenseChange(item._id, e.target.value)}
+                          id="colors" name="colors" className=' px-3 py-2  rounded-md text-xs w-full cursor-pointer hover:text-bronze-primary'>
                           <option selected value="MP3">MP3</option>
                           <option value="WAV">WAV</option>
                           <option value="Trackout">Trackout</option>
@@ -168,7 +168,7 @@ function Cart({ cart, setCart }) {
                       </td>
                       <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-right">
                         <button onClick={() => handleRemoveItem(item)}
-                          className="hover:text-bronze-primary inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3"
+                          className="hover:text-bronze-primary inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3"
                         >
                           <Remove />
                         </button>

@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
-function ShareableLink({ closePopup, itemShareableLink }) {
-    const [text, setText] = useState(`http://localhost:3000/beat/${itemShareableLink.uid}`)
+function ShareableLink({ closePopup, itemShareableLink}) {
+    const [text, setText] = useState(`http://localhost:3000/beat/${itemShareableLink._id}`)
     const [isCopied, setIsCopied] = useState(false)
-
+     
+  
     const copyToClipboard = async () => {
         
         if (text) {
@@ -23,11 +24,11 @@ function ShareableLink({ closePopup, itemShareableLink }) {
         <div>
 
             <div
-                className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+                className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 backdrop-blur-lg"
                 onClick={closePopup} // Close pop-up when clicking on the background
             >
                 <div
-                    className="bg-brand-white w-full max-w-lg h-auto max-h-screen p-8 rounded-lg shadow-lg  max-w-[425px]"
+                    className="w-full max-w-lg h-auto max-h-screen p-8 rounded-lg shadow-lg  max-w-[425px]"
                     onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the pop-up
                 >
 
@@ -45,7 +46,7 @@ function ShareableLink({ closePopup, itemShareableLink }) {
         <div className="flex items-start justify-between p-5 border-b border-gray-200 rounded-t">
                 <div className='flex gap-5'> 
                     <div>
-                        <img src={itemShareableLink.thumbnail} className="w-[3em] aspect-square rounded-sm  flex" />
+                        <img src={itemShareableLink.thumbnailUrl} className="w-[3em] aspect-square rounded-sm  flex" />
                     </div>
                     <div>
                         <h3 className="text-xl font-semibold text-gray-900">
@@ -67,13 +68,14 @@ function ShareableLink({ closePopup, itemShareableLink }) {
         <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-right" for="name">Shareable Link</label>
               <input class="flex h-9 w-full 
               rounded-md border border-input bg-transparent px-3 
-              py-1 text-sm shadow-sm transition-colors file:border-0 
+              py-1 text-sm  transition-colors file:border-0 
               file:bg-transparent file:text-sm file:font-medium file:text-foreground 
               placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 
               focus-visible:ring-ring disabled:cursor-not-allowed 
-              disabled:opacity-50 col-span-3" 
+              disabled:opacity-50 col-span-3
+              " 
               id="name" 
-              value={`http://localhost:3000/beat/${itemShareableLink.uid}`}/>
+              value={`http://localhost:3000/beat/${itemShareableLink._id}`}/>
         
         </div>
         <div className="flex items-center justify-start p-6 border-t border-gray-200 rounded-b">
@@ -89,7 +91,7 @@ function ShareableLink({ closePopup, itemShareableLink }) {
           <button
         onClick={copyToClipboard}
         disabled={!text}
-        className={`w-full text-black border bg-brand-white hover:bg-brand-zinc-100 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center flex flex-row  justify-center align-center${
+        className={`w-full text-black  bg-brand-zinc-100 hover:bg-brand-zinc-50 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center flex flex-row  justify-center align-center${
           text ? 'bg-brand-zinc-200 hover:bg-brand-zinc-100' : 'bg-gray-300 cursor-not-allowed'
         }`}
       >

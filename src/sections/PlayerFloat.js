@@ -7,7 +7,7 @@ import Pause from '../components/Pause.js';
 import Play from '../components/Play.js';
 import formatTime from '../components/FormatTime.js';
 
-function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurations, audioRef, volume, audioIsPlaying, setAudioIsPlaying, setVolume, currentTime}) {
+function PlayerFloat({currentAudio, beats, playNextSong, playSound, duration, audioRef, volume, audioIsPlaying, setAudioIsPlaying, setVolume, currentTime}) {
 
  const previousVolumeRef = useRef(volume); // Reference to store previous volume
  const [isMuted, setIsMuted] = useState(false); // State to track mute status
@@ -15,10 +15,10 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
   // Function to play the previous song
   const playPrevSong = () => {
     if (currentAudio) {
-      const currentIndex = Playlist.findIndex(item => item.id === currentAudio.id);
-      const prevIndex = (currentIndex - 1 + Playlist.length) % Playlist.length; // Loop to the end
-      const prevSong = Playlist[prevIndex];
-      playSound(prevSong.file, prevSong);
+      const currentIndex = beats.findIndex(item => item._id === currentAudio._id);
+      const prevIndex = (currentIndex - 1 + beats.length) % beats.length; // Loop to the end
+      const prevSong = beats[prevIndex];
+      playSound(prevSong.mp3Url, prevSong);
     }
   };
 
@@ -37,12 +37,14 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
 
    // Function to handle dragging the progress bar
    const handleProgressChange = (e) => {
+  
     const progress = e.target.value;
     if (audioRef.current) {
       audioRef.current.currentTime = progress;
     }
   };
-
+  // console.log(audioRef.current.currentTime)
+  // console.log(currentAudio)
   // Function to handle volume change
   const handleVolumeChange = (e) => {
     const volumeValue = e.target.value;
@@ -74,11 +76,11 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
 
   {/* Display current song info */}
   {currentAudio && (
-          <div className='py-0 bg-black w-full flex items-center fixed bottom-0 left-0 px-2 md:px-10 text-brand-white gap-4 backdrop-blur-md z-40'>
+          <div className='py-0 bg-black w-full flex items-center fixed bottom-0 left-0 px-8 sm:px-8 md:px-20 lg:px-20 xl:px-20 2xl:px-48 3xl:px-96 text-brand-white gap-4 backdrop-blur-md z-40'>
             <div className='w-full sm:w-12/12 md:w-6/12 lg:w-4/12 flex items-center'>
               {/* Album Art */}
               <div className='mr-4'>
-                <img src={currentAudio.thumbnail} alt={currentAudio.title} className='w-10 h-auto aspect-square rounded-md' />
+                <img src={currentAudio.thumbnailUrl} alt={currentAudio.title} className='w-10 h-auto aspect-square rounded-md' />
               </div>
 
               {/* Song Details */}
@@ -92,7 +94,7 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
               <button onClick={playPrevSong} className='p-2 text-brand-gray-400 rounded-md hover:text-brand-zinc-400 cursor-pointer'>
                 <Prev />
               </button>
-              <button onClick={togglePlayPause} className='p-1 text-brand-gray-400  rounded-md hover:text-brand-zinc-400 cursor-pointer'>
+              <button onClick={togglePlayPause} className='p-1 text-white  rounded-md hover:text-white cursor-pointer'>
                 { audioIsPlaying ?  <Pause/>  :  <Play/>  }
               </button>
               <button onClick={playNextSong} className='p-2 text-brand-gray-400 rounded-md hover:text-brand-zinc-400 cursor-pointer'>
@@ -108,7 +110,7 @@ function PlayerFloat({currentAudio, Playlist, playNextSong, playSound, songDurat
               <input
                 type="range"
                 min={0}
-                max={songDurations[currentAudio.id] || 0}
+                max={duration}
                 value={currentTime}
                 onChange={handleProgressChange}
                 className="relative w-full rounded-full  cursor-pointer absolute top-0 left-0 h-1 bg-none accent-brand-primary rounded-full"

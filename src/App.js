@@ -10,9 +10,9 @@ import Cart from './sections/Cart';
 import { Toaster, toast } from 'sonner';
 import CheckNotifcation from './components/CheckNotifcation.js'
 import WarningNotification from './components/WarningNotification';
-import { Playlist } from './constants/index';
+// import { setBeats } from './constants/index';
 import ShareableLink from './components/ShareableLink'
-
+import axios from 'axios';
 
 function App() {
   const [show, setShow] = useState(true)
@@ -20,39 +20,64 @@ function App() {
   const [warning, setWarning] = useState(false)
   
 
-  //Player & Playlist
+  //Player & setBeats
   const [currentAudio, setCurrentAudio] = useState(null);
   const audioRef = useRef(null);
   const [audioIsPlaying, setAudioIsPlaying] = useState(false);
-  const [songDurations, setSongDurations] = useState({}); // Store actual durations of all songs
+  // const [songDurations, setSongDurations] = useState({});  
   const [currentTime, setCurrentTime] = useState(0); // State to store current time of the audio
   const [volume, setVolume] = useState(.4); // State to store the volume level (default: 1 = full volume)
   //Shareable link
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [itemShareableLink, setItemShareableLink] = useState(null)
 
+  const [beats, setBeats] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+
+
+  // console.log(songDurations)
   useEffect(() => {
-    // Load actual durations of all songs when component mounts
-    Playlist.forEach((item) => {
-      const audio = new Audio(`http://localhost:3000${item.file}`);
-      audio.addEventListener('loadedmetadata', () => {
-        // Store the actual duration in state
-        setSongDurations((prevDurations) => ({
-          ...prevDurations,
-          [item.id]: audio.duration // Store duration using item ID as the key
-        }));
-      });
-    });
-  }, []); // Empty dependency array means it runs once when the component mounts
+    const fetchBeats = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/beats');
+        setBeats(response.data);
+        console.log(response.data)
+        setLoading(false);
+      } catch (err) {
+        setError('Failed to fetch beats. Please try again later.');
+        setLoading(false);
+      }
+    };
+
+    fetchBeats();
+  }, []);
 
 
-  const playSound = (file, item) => {
+  // useEffect(() => {
+   
+  //   beats.forEach((item) => {
+    
+  //     const audio = new Audio(`${item.mp3Url}`);
+
+  //     audio.addEventListener('loadedmetadata', () => {
+  //       setSongDurations((prevDurations) => ({
+  //         ...prevDurations,
+  //         [item._id]: audio.duration 
+  //       }));
+  //     });
+  //   });
+  // }, []);
+
+
+  const playSound = (mp3Url, item) => {
         if (audioRef.current) {
           audioRef.current.pause();
           audioRef.current.currentTime = 0;
           setAudioIsPlaying(false);
         }
-        const audioPath = `http://localhost:3000${file}`;
+        const audioPath = `${mp3Url}`;
         const audio = new Audio(audioPath);
         audioRef.current = audio;
         audioRef.current.volume = volume; // Set the volume to the current volume state
@@ -82,10 +107,10 @@ function App() {
   // Function to play the next song
   const playNextSong = () => {
     if (currentAudio) {
-      const currentIndex = Playlist.findIndex(item => item.id === currentAudio.id);
-      const nextIndex = (currentIndex + 1) % Playlist.length; // Loop to the start
-      const nextSong = Playlist[nextIndex];
-      playSound(nextSong.file, nextSong);
+      const currentIndex = beats.findIndex(item => item._id === currentAudio._id);
+      const nextIndex = (currentIndex + 1) % beats.length; // Loop to the start
+      const nextSong = beats[nextIndex];
+      playSound(nextSong.mp3Url, nextSong);
 
     }
   }
@@ -97,7 +122,7 @@ function App() {
     var isPresent = false;
     cart.forEach((product) => {
       // console.log(item.id, product.id)
-      if (item.id === product.id) {
+      if (item._id === product._id) {
         isPresent = true
       } else {
       }
@@ -121,14 +146,20 @@ function App() {
  const sharePopup = (item) => {
     setIsPopupVisible(!isPopupVisible); // Toggle the popup
     setItemShareableLink(item)
-     console.log("sharePopup", isPopupVisible)
+     console.log("sharePopup")
      
   };
 
   // Function to close the pop-up
   const closePopup = () => {
-    setIsPopupVisible(false);
+    setIsPopupVisible(!isPopupVisible);
+    console.log("closePopup")
   };
+
+  useEffect(() => {
+    document.body.style.overflow = isPopupVisible ? "hidden" : "unset";
+  }, [isPopupVisible]);
+  
 
   return (
     <div className="App">
@@ -139,10 +170,10 @@ function App() {
             <Hero />
             <Player 
               currentAudio={currentAudio} 
-              Playlist={Playlist} 
+              beats={beats} 
               addToCart={addToCart} 
               playSound={playSound} 
-              songDurations={songDurations} 
+              duration={beats.duration} 
               audioRef={audioRef} 
               volume={volume} 
               audioIsPlaying={audioIsPlaying} 
@@ -151,6 +182,7 @@ function App() {
               currentTime={currentTime}
               cart={cart}
               sharePopup={sharePopup} 
+             
             />
             <Pricing />
             <Footer />
@@ -163,10 +195,10 @@ function App() {
       }
      <PlayerFloat 
       currentAudio={currentAudio} 
-      Playlist={Playlist} 
+      beats={beats} 
       playNextSong={playNextSong} 
       playSound={playSound} 
-      songDurations={songDurations} 
+      duration={beats.duration} 
       audioRef={audioRef} 
       volume={volume} 
       audioIsPlaying={audioIsPlaying} 
@@ -179,7 +211,8 @@ function App() {
       {isPopupVisible && (
           <ShareableLink 
           closePopup={closePopup} 
-          itemShareableLink={itemShareableLink}/>
+          itemShareableLink={itemShareableLink}
+          />
          )
       }
 

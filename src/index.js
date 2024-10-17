@@ -11,6 +11,7 @@ import Contact from './sections/Contact.js'
 import Pricing from './sections/Pricing.js'
 import Login from './sections/Login.js'
 import Beat from './sections/Beat.js'
+import Admin from './sections/admin/Admin.js'
 
 // import './fonts/Geist/webfonts/Geist-ExtraBold.woff2';
 // import './fonts/Geist/webfonts/Geist-Bold.woff2';
@@ -29,8 +30,11 @@ const router = createBrowserRouter([
   { path: "/pricing", element: <Pricing /> },
   { path: "/login", element: <Login /> },
    // Dynamic route for beat
-   { path: "/beat/:uid", element: <Beat /> }, // :title is the dynamic parameter
-])
+   { path: "/beat/:_id", element: <Beat /> }, // :title is the dynamic parameter
+   { path: "/admin", element: <Admin /> }, // :title is the dynamic parameter
+  
+  
+  ])
 
 
 

@@ -7,7 +7,7 @@ function CartTable({cart, setCart}) {
      // Handle license change and update the cart
   const handleLicenseChange = (itemId, selectedLicense) => {
     const updatedCart = cart.map(item =>
-      item.id === itemId ? { ...item, license: selectedLicense, price: licensePrices[selectedLicense] } : item
+      item._id === itemId ? { ...item, license: selectedLicense, price: licensePrices[selectedLicense] } : item
     );
     setCart(updatedCart);
   };
@@ -35,18 +35,18 @@ function CartTable({cart, setCart}) {
               <table className="w-full caption-bottom text-sm">
 
                 <thead className="[&_tr]:border-b">
-                  <tr className="border-b transition-colors hover:bg-brand-zinc-50 data-[state=selected]:bg-muted">
-                    <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 w-[200px]">
+                  <tr className="border-b transition-colors hover:bg-brand-zinc-50 data-[state=selected]:bg-muted ">
+                    <th className="h-12 sm:px-4 text-left align-middle text-xs font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 w-[200px] ">
                       Title
                     </th>
-                    <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+                    <th className="h-12 px-4 text-left align-middle text-xs font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
                       License
                     </th>
-                    <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+                    <th className="h-12 px-4 text-left align-middle text-xs font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
                       Price
                     </th>
-                    <th className="h-12 px-4 text-right align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
-                      Action
+                    <th className="h-12 px-4 text-right align-middle text-xs font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 ">
+                     Action
                     </th>
                   </tr>
                 </thead>
@@ -56,33 +56,36 @@ function CartTable({cart, setCart}) {
                       key={item.title}
                       className=" text-xs border-b transition-colors hover:bg-brand-zinc-100 data-[state=selected]:bg-muted"
                     >
-                      <td className="px-4 py-2 align-middle [&:has([role=checkbox])]:pr-0 font-medium">
-
+                     
+                      <td className="px-1 sm:px-4 sm:py-2 align-middle [&:has([role=checkbox])]:pr-0 font-medium">
+                    
                         <div className="flex gap-0 md:gap-4 items-center">
                           <div>
-                            <img src={item.thumbnail} className="w-[3em] aspect-square rounded-sm hidden md:flex" />
+                            <img src={item.thumbnailUrl} className="w-[0em] sm:w-[3em] aspect-square rounded-sm hidden md:flex" />
                           </div>
                           <div>
-                            <p className="text-sm font-bold">{item.title}</p>
-                            <p className="text-xs text-brand-zinc-400">{item.tags}</p>
+                            <p className="text-xs font-bold">{item.title}</p>
+                            <p className="text-xs text-brand-zinc-400 ">{item.tags}</p>
                           </div>
                         </div>
                       </td>
-                      <td className="px-4 py-2 align-middle [&:has([role=checkbox])]:pr-0">
+                    
+                      <td className="px-2 sm:px-4 sm:py-2 align-middle [&:has([role=checkbox])]:pr-0">
                         <select
                           value={item.license || 'MP3'}
-                          onChange={(e) => handleLicenseChange(item.id, e.target.value)}
-                          id="license" name="license" className=' px-3 py-2 rounded-md text-xs w-full cursor-pointer'>
+                          onChange={(e) => handleLicenseChange(item._id, e.target.value)}
+                          id="license" name="license" className='sm:px-3 py-2 rounded-md text-xs w-full cursor-pointer'>
                           <option selected value="MP3">MP3</option>
                           <option value="WAV">WAV</option>
                           <option value="Trackout">Trackout</option>
                           <option value="Exclusive">Exclusive</option>
                         </select>
                       </td>
-                      <td className="px-4 py-2 align-middle [&:has([role=checkbox])]:pr-0">
+                    
+                      <td className="pl-2 sm:px-4 py-2 align-middle [&:has([role=checkbox])]:pr-0">
                         ${item.price ? item.price.toFixed(0) : '0'}
                       </td>
-                      <td className="px-4 py-2 align-middle [&:has([role=checkbox])]:pr-0 text-right">
+                      <td className="px-0 sm:px-4 py-2  align-middle [&:has([role=checkbox])]:pr-0 text-right">
                         <button onClick={() => handleRemoveItem(item)}
                           className="hover:text-bronze-primary inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3"
                           // border border-input
